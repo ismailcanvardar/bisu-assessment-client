@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SubscriptionService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'http://fe0ea33b4402.ngrok.io/api';
 
   constructor(private http: HttpClient) {}
 
