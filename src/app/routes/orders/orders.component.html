@@ -1,0 +1,36 @@
+<div class="md:mx-72 mx-4 mt-8">
+    <div class="card shadow-2xl lg:card-side bg-primary text-primary-content">
+        <div class="card-body">
+            <p class="font-bold text-4xl">{{subscription.brand}} - {{subscription.fullname}}</p>
+            <p class="text-blue-200">Adres: {{subscription.locationName + " " + subscription.subCityName + " " + subscription.cityName}}</p>
+            <p class="text-blue-200">Distribütor: {{subscription.distributorNumber}}</p>
+            <p class="text-blue-200">Telefon: {{subscription.phoneNumber}}</p>
+        </div>
+    </div>
+    <div class="overflow-x-auto mt-4">
+        <table class="table w-full table-zebra">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Siparişler</th>
+                    <th>Ödeme Metodu</th>
+                    <th>Sipariş Tarihi</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let o of orders">
+                    <th>{{o.orderId}}</th>
+                    <td>
+                        <p *ngFor="let p of parseJson(o.products)">{{p.product}} - {{p.quantity}} Adet</p>
+                    </td>
+                    <td>{{o.paymentMethod}}</td>
+                    <td>{{formatDate(o.deliveryDate)}}</td>
+                    <td>{{o.totalAmount}}</td>
+                    <td>{{o.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
